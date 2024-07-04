@@ -32,6 +32,8 @@ const (
 	UserFieldVerified UserField = "verified"
 	// UserFieldWithHeld contains withholding details
 	UserFieldWithHeld UserField = "withheld"
+	// UserFieldConnectionStatus contains user friendship
+	UserFieldConnectionStatus UserField = "connection_status"
 )
 
 func userFieldStringArray(arr []UserField) []string {
@@ -44,20 +46,21 @@ func userFieldStringArray(arr []UserField) []string {
 
 // UserObj contains Twitter user account metadata describing the referenced user
 type UserObj struct {
-	ID              string          `json:"id"`
-	Name            string          `json:"name"`
-	UserName        string          `json:"username"`
-	CreatedAt       string          `json:"created_at,omitempty"`
-	Description     string          `json:"description,omitempty"`
-	Entities        *EntitiesObj    `json:"entities,omitempty"`
-	Location        string          `json:"location,omitempty"`
-	PinnedTweetID   string          `json:"pinned_tweet_id,omitempty"`
-	ProfileImageURL string          `json:"profile_image_url,omitempty"`
-	Protected       bool            `json:"protected,omitempty"`
-	PublicMetrics   *UserMetricsObj `json:"public_metrics,omitempty"`
-	URL             string          `json:"url,omitempty"`
-	Verified        bool            `json:"verified,omitempty"`
-	WithHeld        *WithHeldObj    `json:"withheld,omitempty"`
+	ID               string          `json:"id"`
+	Name             string          `json:"name"`
+	UserName         string          `json:"username"`
+	CreatedAt        string          `json:"created_at,omitempty"`
+	Description      string          `json:"description,omitempty"`
+	Entities         *EntitiesObj    `json:"entities,omitempty"`
+	Location         string          `json:"location,omitempty"`
+	PinnedTweetID    string          `json:"pinned_tweet_id,omitempty"`
+	ProfileImageURL  string          `json:"profile_image_url,omitempty"`
+	Protected        bool            `json:"protected,omitempty"`
+	PublicMetrics    *UserMetricsObj `json:"public_metrics,omitempty"`
+	URL              string          `json:"url,omitempty"`
+	Verified         bool            `json:"verified,omitempty"`
+	WithHeld         *WithHeldObj    `json:"withheld,omitempty"`
+	ConnectionStatus []string        `json:"connection_status,omitempty"`
 }
 
 // UserMetricsObj contains details about activity for this user
